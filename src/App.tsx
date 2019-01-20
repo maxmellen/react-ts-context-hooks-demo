@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 export default function App() {
+  const [state, setState] = useState({ count: 0 });
+
+  const onClick = (_event: any) => {
+    setState({ ...state, count: state.count + 1 });
+  };
+
   return (
     <div className="App">
       <h1>Using Context &amp; Hooks to replace Redux in (TypeScript) React</h1>
+      <p>Count: {state.count}</p>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem,
-        soluta sapiente ut dignissimos, vitae voluptates laudantium iure autem
-        atque ipsam animi ratione in, ab voluptate fugit labore laboriosam
-        similique dolores.
+        <button {...{ onClick }}>Increment</button>
       </p>
     </div>
   );
