@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
+import { StateProps, withState } from './appState';
 
-export default function App() {
-  const [state, setState] = useState({ count: 0 });
-
+function App({ state, setState }: StateProps) {
   const onClick = (_event: any) => {
     setState({ ...state, count: state.count + 1 });
   };
@@ -18,3 +17,5 @@ export default function App() {
     </div>
   );
 }
+
+export default withState(App);
